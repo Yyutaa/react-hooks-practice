@@ -1,25 +1,22 @@
 /*
  * @Author: your name
  * @Date: 2021-03-30 15:42:18
- * @LastEditTime: 2021-03-30 16:50:47
+ * @LastEditTime: 2021-03-31 11:45:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /covid-19-with-hooks/src/components/HistoryChartGroup.js
  */
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import HistoryChart from "./HistoryChart";
 import { transformHistory } from "../utils";
+import { AppDispatch } from '../App'
 
-function HistoryChartGroup({ history = {} }) {
-  const [lastDays, onChangeLastDays] = useState({
-    cases: 30,
-    deaths: 30,
-    recovered: 30
-  })
+function HistoryChartGroup({ history = {}, lastDays = {} }) {
+  const dispatch = useContext(AppDispatch);
 
   const onChange = (e, key) => {
-    onChangeLastDays((prev) => ({ ...prev, [key]: e.target.value }));
+    dispatch(({ type: "SET_LASTDAYS", key,  days: e.target.value}));
   }
 
   return (

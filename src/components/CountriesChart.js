@@ -1,11 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2021-03-29 11:48:08
- * @LastEditTime: 2021-03-30 16:03:24
+ * @LastEditTime: 2021-03-31 11:45:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /covid-19-with-hooks/src/components/CountriesChart.js
  */
+import { useContext } from "react";
 import {
   BarChart,
   CartesianGrid,
@@ -15,8 +16,17 @@ import {
   Legend,
   Bar,
 } from "recharts";
+import { AppDispatch } from '../App'
 
-function CountriesChart({ data, dataKey, onClick }) {
+function CountriesChart({ data, dataKey }) {
+  const dispatch = useContext(AppDispatch);
+
+  const onClick = (payload) => {
+    if (payload.activeLabel) {
+      dispatch({ type: "SET_COUNTRY", country: payload.activeLabel })
+    }
+  }
+
   return (
     <BarChart
       width={1200}

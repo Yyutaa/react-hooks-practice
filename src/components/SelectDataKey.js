@@ -1,14 +1,21 @@
 /*
  * @Author: your name
  * @Date: 2021-03-29 11:51:56
- * @LastEditTime: 2021-03-29 13:42:51
+ * @LastEditTime: 2021-03-31 11:44:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /covid-19-with-hooks/src/components/SelectDataKey.js
  */
-import React from "react";
+import React, { useContext } from "react";
+import { AppDispatch } from '../App'
 
-function SelectDataKey({ onChange }) {
+function SelectDataKey() {
+  const dispatch = useContext(AppDispatch);
+
+  const onChange = (e) => {
+    dispatch({ type: 'SET_KEY', key: e.target.value })
+  }
+
   return (
     <>
       <label htmlFor='key-select'>Select a key for sorting: </label>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-30 15:04:44
- * @LastEditTime: 2021-03-30 16:51:51
+ * @LastEditTime: 2021-03-31 11:37:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /covid-19-with-hooks/src/components/HistoryChart.js
